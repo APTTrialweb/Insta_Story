@@ -103,7 +103,8 @@
 <body>
   <h1>How To Earn Passive Income through Stock Market Analysis</h1>
 
-  <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" alt="Passive Income Poster" class="poster" />
+  <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" 
+       alt="Passive Income Poster" class="poster" />
 
   <a href="https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1" 
      target="_blank" rel="noopener noreferrer" 
@@ -122,15 +123,14 @@
     document.getElementById("joinBtn").addEventListener("click", function(e) {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
 
+      // Inside Instagram in-app browser
       if (ua.indexOf("Instagram") > -1) {
         e.preventDefault();
-
-        if (/android/i.test(ua)) {
-          window.location = "intent://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1#Intent;scheme=https;package=com.android.chrome;end";
-        } else if (/iPhone|iPad|iPod/i.test(ua)) {
+        if (/iPhone|iPad|iPod/i.test(ua)) {
           document.getElementById("iosNotice").style.display = "block";
         } else {
-          window.open(zoomWebLink, "_blank");
+          // Android Instagram fallback: just open web link
+          window.location.href = zoomWebLink;
         }
       } else {
         // Try Zoom app first, then fallback to web
