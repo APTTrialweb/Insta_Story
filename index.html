@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Passive Income</title>
   <style>
+    /* Global styles */
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
       text-align: center;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     h1 {
       font-size: 2rem;
-      max-width: 700px;
-      margin-bottom: 40px;
+      font-weight: 600;
+      max-width: 800px;
+      margin: 20px 0;
+      line-height: 1.4;
       animation: fadeInDown 1.5s ease;
+    }
+
+    .poster {
+      max-width: 90%;
+      width: 500px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      margin: 20px 0 30px;
+      animation: fadeIn 2s ease;
     }
 
     .btn {
@@ -31,6 +43,7 @@
       background: #ff6b6b;
       color: white;
       font-size: 1.2rem;
+      font-weight: 500;
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -38,25 +51,15 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, background 0.3s ease;
       animation: fadeInUp 1.5s ease;
+      display: inline-block;
     }
 
     .btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       background: #ff4757;
     }
 
-    /* Background floating animation */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      animation: float 10s infinite ease-in-out;
-    }
-
-    .circle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 20%; animation-duration: 12s; }
-    .circle:nth-child(2) { width: 150px; height: 150px; bottom: 15%; right: 15%; animation-duration: 15s; }
-    .circle:nth-child(3) { width: 80px; height: 80px; top: 30%; right: 30%; animation-duration: 18s; }
-
+    /* Animations */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -67,19 +70,31 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-20px) translateX(20px); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>HOW TO EARN PASSIVE INCOME thru Stock Market Analysis</h1>
-  <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn">Learn More</a>
 
-  <!-- Floating background circles -->
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
+  <!-- Poster image (place it in your repo and update path) -->
+  <img src="poster.jpg" alt="Passive Income Poster" class="poster" />
+
+  <!-- Button -->
+  <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn">Learn More</a>
 </body>
 </html>
