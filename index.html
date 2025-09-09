@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passive Income</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2rem;
+      max-width: 700px;
+      margin-bottom: 40px;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      background: #ff6b6b;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, background 0.3s ease;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #ff4757;
+    }
+
+    /* Background floating animation */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) { width: 100px; height: 100px; top: 10%; left: 20%; animation-duration: 12s; }
+    .circle:nth-child(2) { width: 150px; height: 150px; bottom: 15%; right: 15%; animation-duration: 15s; }
+    .circle:nth-child(3) { width: 80px; height: 80px; top: 30%; right: 30%; animation-duration: 18s; }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-20px) translateX(20px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>HOW TO EARN PASSIVE INCOME thru Stock Market Analysis</h1>
+  <a href="google.com" class="btn">Learn More</a>
+
+  <!-- Floating background circles -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+</body>
+</html>
