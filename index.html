@@ -39,25 +39,32 @@
     }
 
     .btn {
-      padding: 15px 40px;
-      background: #ff6b6b;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 500;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, background 0.3s ease;
-      animation: fadeInUp 1.5s ease;
-      display: inline-block;
-    }
+  padding: 15px 40px;
+  background: #ff6b6b;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: fadeInUp 1.5s ease;
+  display: inline-flex;   /* changed to flex */
+  align-items: center;    /* vertical align */
+  gap: 10px;              /* space between icon and text */
+}
 
     .btn:hover {
       transform: scale(1.05);
       background: #ff4757;
     }
+
+    .zoom-icon {
+  width: 24px;
+  height: 24px;
+}
 
     /* Animations */
     @keyframes fadeInDown {
@@ -105,7 +112,11 @@
   <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" alt="Passive Income Poster" class="poster" />
 
   <!-- Button -->
-  <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn" id="joinBtn">Join Now</a>
+<a href="https://zoom.us/j/1234567890" target="_blank" rel="noopener noreferrer" class="btn" id="joinBtn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" 
+       alt="Zoom Logo" class="zoom-icon"> 
+  Click Here to get Zoom Link
+</a>
 
   <!-- iOS Fallback Notice -->
   <div id="iosNotice">🔗 Please open this link in Safari/Chrome for the best experience.</div>
