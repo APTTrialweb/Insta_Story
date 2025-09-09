@@ -86,15 +86,50 @@
         padding: 12px 30px;
       }
     }
+
+    /* iOS fallback notice */
+    #iosNotice {
+      display: none;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h1>HOW TO EARN PASSIVE INCOME through Stock Market Analysis</h1>
+  <h1>HOW TO EARN PASSIVE INCOME thru Stock Market Analysis</h1>
 
   <!-- Poster image (place it in your repo and update path) -->
-  <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" alt="Passive Income Poster" class="poster" />
+  <img src="poster.jpg" alt="Passive Income Poster" class="poster" />
 
   <!-- Button -->
-  <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn">Join Now</a>
+  <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn" id="joinBtn">Learn More</a>
+
+  <!-- iOS Fallback Notice -->
+  <div id="iosNotice">🔗 Please open this link in Safari/Chrome for the best experience.</div>
+
+  <script>
+    document.getElementById("joinBtn").addEventListener("click", function(e) {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Check if inside Instagram in-app browser
+      if (ua.indexOf("Instagram") > -1) {
+        e.preventDefault();
+
+        if (/android/i.test(ua)) {
+          // Try to open Chrome on Android
+          window.location = "intent://google.com#Intent;scheme=https;package=com.android.chrome;end";
+        } else if (/iPhone|iPad|iPod/i.test(ua)) {
+          // iOS cannot force redirect - show a notice
+          document.getElementById("iosNotice").style.display = "block";
+        } else {
+          // fallback normal redirect
+          window.open("https://google.com", "_blank");
+        }
+      }
+    });
+  </script>
 </body>
 </html>
