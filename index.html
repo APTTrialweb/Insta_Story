@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Passive Income</title>
   <style>
-    /* Global styles */
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
@@ -39,22 +38,22 @@
     }
 
     .btn {
-  padding: 15px 40px;
-  background: #ff6b6b;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  text-decoration: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, background 0.3s ease;
-  animation: fadeInUp 1.5s ease;
-  display: inline-flex;   /* changed to flex */
-  align-items: center;    /* vertical align */
-  gap: 10px;              /* space between icon and text */
-}
+      padding: 15px 40px;
+      background: #ff6b6b;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, background 0.3s ease;
+      animation: fadeInUp 1.5s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .btn:hover {
       transform: scale(1.05);
@@ -62,11 +61,10 @@
     }
 
     .zoom-icon {
-  width: 24px;
-  height: 24px;
-}
+      width: 24px;
+      height: 24px;
+    }
 
-    /* Animations */
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -82,19 +80,16 @@
       to { opacity: 1; }
     }
 
-    /* Mobile responsiveness */
     @media (max-width: 600px) {
       h1 {
         font-size: 1.5rem;
       }
-
       .btn {
         font-size: 1rem;
         padding: 12px 30px;
       }
     }
 
-    /* iOS fallback notice */
     #iosNotice {
       display: none;
       margin-top: 20px;
@@ -108,37 +103,53 @@
 <body>
   <h1>How To Earn Passive Income through Stock Market Analysis</h1>
 
-  <!-- Poster image (place it in your repo and update path) -->
   <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" alt="Passive Income Poster" class="poster" />
 
-  <!-- Button -->
-<a href="https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1" target="_blank" rel="noopener noreferrer" class="btn" id="joinBtn">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" 
-       alt="Zoom Logo" class="zoom-icon"> 
-  Click Here to get Zoom Link
-</a>
+  <a href="https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1" 
+     target="_blank" rel="noopener noreferrer" 
+     class="btn" id="joinBtn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" 
+         alt="Zoom Logo" class="zoom-icon"> 
+    Click Here to get Zoom Link
+  </a>
 
-  <!-- iOS Fallback Notice -->
   <div id="iosNotice">🔗 Please open this link in Safari/Chrome for the best experience.</div>
 
   <script>
+    const zoomAppLink = "zoomus://zoom.us/join?confno=87311525883&pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1";
+    const zoomWebLink = "https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1";
+
     document.getElementById("joinBtn").addEventListener("click", function(e) {
       const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-      // Check if inside Instagram in-app browser
       if (ua.indexOf("Instagram") > -1) {
         e.preventDefault();
 
         if (/android/i.test(ua)) {
-          // Try to open Chrome on Android
-          window.location = "intent://https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1#Intent;scheme=https;package=com.android.chrome;end";
+          window.location = "intent://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1#Intent;scheme=https;package=com.android.chrome;end";
         } else if (/iPhone|iPad|iPod/i.test(ua)) {
-          // iOS cannot force redirect - show a notice
           document.getElementById("iosNotice").style.display = "block";
         } else {
-          // fallback normal redirect
-          window.open("https://google.com", "_blank");
+          window.open(zoomWebLink, "_blank");
         }
+      } else {
+        // Try Zoom app first, then fallback to web
+        e.preventDefault();
+        let opened = false;
+
+        const timer = setTimeout(function() {
+          if (!opened) {
+            window.location.href = zoomWebLink;
+          }
+        }, 1500);
+
+        window.location.href = zoomAppLink;
+
+        // If user has Zoom app, cancel fallback
+        window.addEventListener("blur", function() {
+          clearTimeout(timer);
+          opened = true;
+        });
       }
     });
   </script>
