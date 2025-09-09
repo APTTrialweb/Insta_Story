@@ -131,7 +131,7 @@
 
         if (/android/i.test(ua)) {
           // Try to open Chrome on Android
-          window.location = "intent://google.com#Intent;scheme=https;package=com.android.chrome;end";
+          window.location = "intent://https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1#Intent;scheme=https;package=com.android.chrome;end";
         } else if (/iPhone|iPad|iPod/i.test(ua)) {
           // iOS cannot force redirect - show a notice
           document.getElementById("iosNotice").style.display = "block";
