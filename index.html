@@ -106,9 +106,7 @@
   <img src="https://github.com/APTTrialweb/Insta_Story/blob/main/WhatsApp%20Image%202025-09-08%20at%2015.14.34_15eb37b5.jpg?raw=true" 
        alt="Passive Income Poster" class="poster" />
 
-  <a href="https://us05web.zoom.us/j/87311525883?pwd=R79GXFlpt3StMX9y1HbsmDZFaLkQ2B.1" 
-     target="_blank" rel="noopener noreferrer" 
-     class="btn" id="joinBtn">
+  <a href="#" class="btn" id="joinBtn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" 
          alt="Zoom Logo" class="zoom-icon"> 
     Click Here to get Zoom Link
@@ -117,40 +115,33 @@
   <div id="iosNotice">🔗 Please open this link in Safari/Chrome for the best experience.</div>
 
   <script>
-   const zoomAppLink = "zoomus://zoom.us/join?confno=8860201105&pwd=dRRKVox95Yx4dkOck5aP02ylmPsy7L.1";
-   const zoomWebLink = "https://us02web.zoom.us/j/8860201105?pwd=dRRKVox95Yx4dkOck5aP02ylmPsy7L.1&omn=87254117415";
+    const zoomAppLink = "zoomus://zoom.us/join?confno=8860201105&pwd=dRRKVox95Yx4dkOck5aP02ylmPsy7L.1";
+    const zoomWebLink = "https://us02web.zoom.us/j/8860201105?pwd=dRRKVox95Yx4dkOck5aP02ylmPsy7L.1&omn=87254117415";
 
     document.getElementById("joinBtn").addEventListener("click", function(e) {
+      e.preventDefault();
       const ua = navigator.userAgent || navigator.vendor || window.opera;
 
       // Inside Instagram in-app browser
       if (ua.indexOf("Instagram") > -1) {
-        e.preventDefault();
         if (/iPhone|iPad|iPod/i.test(ua)) {
           document.getElementById("iosNotice").style.display = "block";
         } else {
-          // Android Instagram fallback: just open web link
+          window.open(zoomWebLink, "_blank");
+        }
+        return;
+      }
+
+      // Outside Instagram
+      const now = Date.now();
+      window.location.href = zoomAppLink;
+
+      // Fallback after 1.5s if app not installed
+      setTimeout(function() {
+        if (Date.now() - now < 2000) {
           window.location.href = zoomWebLink;
         }
-      } else {
-        // Try Zoom app first, then fallback to web
-        e.preventDefault();
-        let opened = false;
-
-        const timer = setTimeout(function() {
-          if (!opened) {
-            window.location.href = zoomWebLink;
-          }
-        }, 1500);
-
-        window.location.href = zoomAppLink;
-
-        // If user has Zoom app, cancel fallback
-        window.addEventListener("blur", function() {
-          clearTimeout(timer);
-          opened = true;
-        });
-      }
+      }, 1500);
     });
   </script>
 </body>
